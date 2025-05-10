@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using ProyectoWEB.Models;
+
 
 namespace ProyectoWEB.Controllers
 {
@@ -18,7 +20,7 @@ namespace ProyectoWEB.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Depositar()
         {
             return View();
         }
