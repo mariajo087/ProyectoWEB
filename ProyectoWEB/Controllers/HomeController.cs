@@ -24,6 +24,10 @@ namespace ProyectoWEB.Controllers
         {
             return View();
         }
+        public IActionResult Retiro()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
