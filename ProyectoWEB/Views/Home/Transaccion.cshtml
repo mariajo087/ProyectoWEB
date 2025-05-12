@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Transferencia de Fondos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Realizar Transferencia</h2>
+<form asp-action="RealizarTransferencia" method="post">
+    <label>Para:</label>
+    <input type="text" class="form-control" name="Para" required>
+
+    <label>Monto:</label>
+    <input type="number" class="form-control" name="Monto" required>
+
+    <button type="submit" class="btn btn-success mt-3">Confirmar Transferencia</button>
+</form>

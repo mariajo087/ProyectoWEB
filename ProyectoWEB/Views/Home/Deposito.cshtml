@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Realizar Depósito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Depósito de Fondos</h2>
+<form asp-action="RealizarDeposito" method="post">
+    <label>Monto:</label>
+    <input type="number" class="form-control" name="Monto" required>
+    <button type="submit" class="btn btn-primary mt-3">Depositar</button>
+</form>
