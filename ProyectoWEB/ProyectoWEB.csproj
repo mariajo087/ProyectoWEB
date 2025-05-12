@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\Prestamo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\imagenes\" />
   </ItemGroup>
 

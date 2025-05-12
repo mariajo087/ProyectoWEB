@@ -1,0 +1,37 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<h2>Gestión de Préstamos</h2>
+
+<div class="container">
+    <div class="row">
+        <!-- Sección para solicitar préstamo -->
+        <div class="col-md-6">
+            <h3>Solicitar Préstamo</h3>
+            <form asp-action="SolicitarPrestamo" method="post">
+                <label for="Monto">Monto:</label>
+                <input type="number" class="form-control" name="Monto" required />
+
+                <button type="submit" class="btn btn-primary mt-3">Solicitar</button>
+            </form>
+        </div>
+
+        <!-- Sección para pagar préstamo -->
+        <div class="col-md-6">
+            <h3>Pagar Préstamo</h3>
+            <form asp-action="PagarPrestamo" method="post">
+                <label for="Monto">Monto a pagar:</label>
+                <input type="number" class="form-control" name="Monto" required />
+
+                <label for="Referencia">Referencia:</label>
+                <input type="text" class="form-control" name="Referencia" required />
+
+                <button type="submit" class="btn btn-success mt-3">Confirmar Pago</button>
+            </form>
+        </div>
+    </div>
+</div>

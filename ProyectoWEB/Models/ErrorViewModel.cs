@@ -1,4 +1,5 @@
 namespace ProyectoWEB.Models
+
 {
     public class ErrorViewModel
     {
