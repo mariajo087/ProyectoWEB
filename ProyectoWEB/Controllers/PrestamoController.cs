@@ -1,32 +1,39 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProyectoWEB.Data;
 using ProyectoWEB.Models;
-using System.Collections.Generic;
 
-public class PrestamoController : Controller
+namespace ProyectoWEB.Controllers
 {
-    private static List<Prestamo> prestamos = new List<Prestamo>();
-
-    public IActionResult Index()
+    [ApiController]
+    public class PrestamoController: ControllerBase
     {
-        return View(prestamos);
-    }
+        private readonly ApplicationDbContext _context;
 
-    [HttpPost]
-    public IActionResult SolicitarPrestamo(decimal monto)
-    {
-        if (monto <= 0) return BadRequest("El monto debe ser mayor a cero.");
+        public PrestamoController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
-        var nuevoPrestamo = new Prestamo { Monto = monto, Referencia = "Nuevo préstamo" };
-        prestamos.Add(nuevoPrestamo);
+        [HttpPost]
+        [Route("api/prestamo/guardar")]
+        public IActionResult Guardar([FromBody] Prestamo model)
 
-        return RedirectToAction("Index");
-    }
+        {
+            try
+            {
+                _context.Prestamo.Add(model);
+                _context.SaveChanges();
 
-    [HttpPost]
-    public IActionResult PagarPrestamo(decimal monto, string referencia)
-    {
-        if (monto <= 0 || string.IsNullOrEmpty(referencia)) return BadRequest("Datos inválidos.");
-
-        return RedirectToAction("Index");
+                return Ok(new { mensaje = "Formulario guardado exitosamente." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    mensaje = "Error en el servidor: " + ex.Message,
+                    detalle = ex.InnerException?.Message
+                });
+            }
+        }
     }
 }

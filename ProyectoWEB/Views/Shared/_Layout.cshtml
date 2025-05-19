@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BANCO DM</title>
+    <title>@ViewData["Title"] - MJ BANK DIGITAL</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BANCO DM</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MJ BANK DIGITAL</a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,9 +23,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">INICIO</a>
-                        </li>
-                        <li class="nav-item">
+                   
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Depositar">DEPOSITAR</a>
                         </li>
                         <li class="nav-item">
@@ -34,7 +32,11 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Prestamo">PRÉSTAMO</a>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Transaccion">TRANSACCIÓN</a>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contacto1">CONTÁCTAME</a>
+                        <li class="nav-item">
+                       
+                   
                         </li>
                     </ul>
 
@@ -65,5 +67,8 @@
             @RenderBody()
         </main>
     </div>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
 </body>
 </html>

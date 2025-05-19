@@ -1,0 +1,81 @@
+﻿@model ProyectoWEB.Models.Contacto
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow rounded-4">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3><i class="bi bi-envelope-paper-heart"></i> Contáctame</h3>
+                </div>
+                <div class="card-body">
+                    <form id="ContactoF">
+                        <div class="mb-3">
+                            <label class="form-label">Nombre</label>
+                            <input id="nombre" class="form-control" placeholder="Ej. María José" />
+                            <span class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input id="email" type="email" class="form-control" placeholder="ejemplo@correo.com" />
+                            <span class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Asunto</label>
+                            <input id="asunto" class="form-control" placeholder="Motivo del mensaje" />
+                            <span class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Mensaje</label>
+                            <textarea id="mensaje" class="form-control" rows="5" placeholder="Escribe tu mensaje..."></textarea>
+                            <span class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-send-fill"></i> Enviar
+                            </button>
+                        </div>
+                    </form>
+
+                    @if (ViewBag.Mensaje != null)
+                    {
+                        <div class="alert alert-info mt-3">@ViewBag.Mensaje</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        document.getElementById('ContactoF').addEventListener('submit', async function(e) {
+          e.preventDefault();
+
+          const data = {
+            Nombre: document.getElementById('nombre').value,
+            Email: document.getElementById('email').value,
+            Asunto: document.getElementById('asunto').value,
+            Mensaje: document.getElementById('mensaje').value,
+
+          };
+
+            console.log("Datos enviados:", JSON.stringify(data));
+
+          fetch("https://localhost:5001/api/correo/enviar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => console.log("Éxito:", data))
+    .catch(error => console.error("Error:", error));
+
+
+        });
+</script>

@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Net.Mail;
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ProyectoWEB.Models;
@@ -40,10 +42,21 @@ namespace ProyectoWEB.Controllers
         {
             return View();
         }
-          
+
         public IActionResult Prestamo()
         {
             return View();
         }
+            public IActionResult Contacto1()
+        {
+            return View();
+
+
+        }
+       
+   
+
+
     }
 }
+
